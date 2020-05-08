@@ -129,6 +129,12 @@ void ConsoleReporter::PrintRunData(const Run& result) {
     return;
   }
 
+  if (!result.info_message.empty()) {
+    printer(Out, COLOR_CYAN, "INFO MESSAGE: \'%s\'", result.info_message.c_str());
+    printer(Out, COLOR_DEFAULT, "\n");
+    return;
+  }
+
   const double real_time = result.GetAdjustedRealTime();
   const double cpu_time = result.GetAdjustedCPUTime();
   const std::string real_time_str = FormatTime(real_time);

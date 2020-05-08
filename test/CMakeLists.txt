@@ -93,6 +93,9 @@ add_test(NAME diagnostics_test COMMAND diagnostics_test --benchmark_min_time=0.0
 compile_benchmark_test(skip_with_error_test)
 add_test(NAME skip_with_error_test COMMAND skip_with_error_test --benchmark_min_time=0.01)
 
+compile_benchmark_test(skip_with_info_test)
+add_test(NAME skip_with_info_test COMMAND skip_with_info_test --benchmark_min_time=0.01)
+
 compile_benchmark_test(donotoptimize_test)
 # Some of the issues with DoNotOptimize only occur when optimization is enabled
 check_cxx_compiler_flag(-O3 BENCHMARK_HAS_O3_FLAG)

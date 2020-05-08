@@ -184,6 +184,17 @@ void State::SkipWithError(const char* msg) {
   if (timer_->running()) timer_->StopTimer();
 }
 
+void State::SkipWithInfo(const char* msg) {
+  CHECK(msg);
+  error_occurred_ = true;
+  {
+    MutexLock l(manager_->GetBenchmarkMutex());
+    manager_->results.info_message_ = msg;
+  }
+  total_iterations_ = 0;
+  if (timer_->running()) timer_->StopTimer();
+}
+
 void State::SetIterationTime(double seconds) {
   timer_->SetIterationTime(seconds);
 }

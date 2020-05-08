@@ -45,6 +45,7 @@ class ThreadManager {
     int64_t complexity_n = 0;
     std::string report_label_;
     std::string error_message_;
+    std::string info_message_;
     bool has_error_ = false;
     UserCounters counters;
   };

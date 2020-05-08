@@ -541,6 +541,8 @@ class State {
   // responsibility to exit the scope as needed.
   void SkipWithError(const char* msg);
 
+  void SkipWithInfo(const char* msg);
+
   // Returns true if an error has been reported with 'SkipWithError(...)'.
   bool error_occurred() const { return error_occurred_; }
 
@@ -1380,6 +1382,7 @@ class BenchmarkReporter {
     std::string report_label;  // Empty if not set by benchmark.
     bool error_occurred;
     std::string error_message;
+    std::string info_message;
 
     IterationCount iterations;
     int64_t threads;
